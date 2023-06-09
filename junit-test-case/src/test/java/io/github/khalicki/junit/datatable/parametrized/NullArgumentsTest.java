@@ -1,15 +1,15 @@
-package io.github.khalicki.junit.testcase.parametrized;
+package io.github.khalicki.junit.datatable.parametrized;
 
-import io.github.khalicki.junit.testcase.TestCase;
-import io.github.khalicki.junit.testcase.TestCaseSource;
+import io.github.khalicki.junit.datatable.Row;
+import io.github.khalicki.junit.datatable.DataTableSource;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.params.ParameterizedTest;
 
 public class NullArgumentsTest {
 
     @ParameterizedTest
-    @TestCaseSource({
-        @TestCase({"null"})
+    @DataTableSource({
+        @Row({"null"})
     })
     public void shouldBeParameterizedWithNull(String value) {
         // expect
@@ -17,9 +17,9 @@ public class NullArgumentsTest {
     }
 
     @ParameterizedTest
-    @TestCaseSource(value = {
-        @TestCase({"null", "false"}),
-        @TestCase({"nil", "true"}),
+    @DataTableSource(value = {
+        @Row({"null", "false"}),
+        @Row({"nil", "true"}),
     }, nullValue = "nil"
     )
     public void shouldAllowChangeNullValue(String value, Boolean isNull) {

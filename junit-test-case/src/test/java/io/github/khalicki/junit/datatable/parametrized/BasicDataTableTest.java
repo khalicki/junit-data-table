@@ -1,16 +1,16 @@
-package io.github.khalicki.junit.testcase.parametrized;
+package io.github.khalicki.junit.datatable.parametrized;
 
-import io.github.khalicki.junit.testcase.TestCase;
-import io.github.khalicki.junit.testcase.TestCaseSource;
+import io.github.khalicki.junit.datatable.Row;
+import io.github.khalicki.junit.datatable.DataTableSource;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.params.ParameterizedTest;
 
-public class BasicTestCasesParametrizedTest {
+public class BasicDataTableTest {
 
     @ParameterizedTest
-    @TestCaseSource({
-        @TestCase({"a", "b", "ab"}),
-        @TestCase({"d", "e", "de"})
+    @DataTableSource({
+        @Row({"a", "b", "ab"}),
+        @Row({"d", "e", "de"})
     })
     public void shouldConcatStrings(String first, String second, String result) {
         // expect
@@ -18,9 +18,9 @@ public class BasicTestCasesParametrizedTest {
     }
 
     @ParameterizedTest
-    @TestCaseSource({
-        @TestCase({"1", "1", "2"}),
-        @TestCase({"2", "3", "5"})
+    @DataTableSource({
+        @Row({"1", "1", "2"}),
+        @Row({"2", "3", "5"})
     })
     public void shouldSumInts(int first, int second, int result) {
         // expect

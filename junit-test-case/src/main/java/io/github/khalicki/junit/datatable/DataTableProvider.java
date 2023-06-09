@@ -1,4 +1,4 @@
-package io.github.khalicki.junit.testcase;
+package io.github.khalicki.junit.datatable;
 
 import org.junit.jupiter.api.extension.ExtensionContext;
 import org.junit.jupiter.params.provider.Arguments;
@@ -8,13 +8,13 @@ import org.junit.jupiter.params.support.AnnotationConsumer;
 import java.util.Arrays;
 import java.util.stream.Stream;
 
-public class TestCaseProvider implements ArgumentsProvider, AnnotationConsumer<TestCaseSource> {
+public class DataTableProvider implements ArgumentsProvider, AnnotationConsumer<DataTableSource> {
 
-    private TestCaseSource annotation;
+    private DataTableSource annotation;
 
     @Override
-    public void accept(TestCaseSource testCaseSource) {
-        this.annotation = testCaseSource;
+    public void accept(DataTableSource dataTableSource) {
+        this.annotation = dataTableSource;
     }
 
     @Override
