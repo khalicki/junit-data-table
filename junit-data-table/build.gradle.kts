@@ -26,4 +26,8 @@ tasks.compileJava {
 
 tasks.named<Test>("test") {
     useJUnitPlatform()
+    testLogging {
+        showStandardStreams = true
+        events("standardOut", "passed", "skipped", "failed")
+    }
 }
