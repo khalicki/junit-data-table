@@ -3,5 +3,5 @@ plugins {
     id("org.gradle.toolchains.foojay-resolver-convention") version "0.4.0"
 }
 
-rootProject.name = "junit-test-case"
-include("junit-test-case")
+rootProject.name = "junit-data-table"
+include("junit-data-table")
