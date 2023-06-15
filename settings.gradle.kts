@@ -4,4 +4,6 @@ plugins {
 }
 
 rootProject.name = "junit-data-table"
+
 include("junit-data-table")
+include("kotlin-examples")
