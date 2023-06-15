@@ -1,11 +1,12 @@
 plugins {
-    `java-library`
+    id("java-library")
 }
 
 repositories {
     mavenCentral()
 }
 
+group = "io.github.khalicki"
 version = "0.1.0-SNAPSHOT"
 
 dependencies {
