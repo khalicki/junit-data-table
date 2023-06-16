@@ -1,5 +1,6 @@
 plugins {
-    id("java-library")
+    `java-library`
+    `maven-publish`
 }
 
 repositories {
@@ -16,6 +17,8 @@ dependencies {
 }
 
 java {
+    withSourcesJar()
+    withJavadocJar()
     toolchain {
         languageVersion.set(JavaLanguageVersion.of(17))
     }
@@ -31,4 +34,19 @@ tasks.named<Test>("test") {
         showStandardStreams = true
         events("standardOut", "passed", "skipped", "failed")
     }
+}
+
+publishing {
+    publications {
+        create<MavenPublication>("library") {
+            from(components["java"])
+        }
+    }
+
+//    repositories {
+//        maven {
+//            name = "local"
+//            url = uri(layout.buildDirectory.dir("maven-repository"))
+//        }
+//    }
 }
