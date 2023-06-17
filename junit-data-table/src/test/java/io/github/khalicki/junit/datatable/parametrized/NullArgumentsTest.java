@@ -1,7 +1,7 @@
 package io.github.khalicki.junit.datatable.parametrized;
 
-import io.github.khalicki.junit.datatable.Row;
 import io.github.khalicki.junit.datatable.DataTableSource;
+import io.github.khalicki.junit.datatable.Row;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.params.ParameterizedTest;
 
@@ -9,7 +9,7 @@ public class NullArgumentsTest {
 
     @ParameterizedTest
     @DataTableSource({
-        @Row({"null"})
+        @Row(value = {"null"})
     })
     public void shouldBeParameterizedWithNull(String value) {
         // expect

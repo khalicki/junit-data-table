@@ -8,6 +8,13 @@ import org.junit.jupiter.params.support.AnnotationConsumer;
 import java.util.Arrays;
 import java.util.stream.Stream;
 
+/**
+ * ArgumentsProvider that reads test cases from {@code @DataTableSource} annotation
+ * and provides arguments for the execution of a parametrized test.
+ *
+ * @since 0.1.0
+ * @author Kamil Halicki
+ */
 public class DataTableProvider implements ArgumentsProvider, AnnotationConsumer<DataTableSource> {
 
     private DataTableSource annotation;
