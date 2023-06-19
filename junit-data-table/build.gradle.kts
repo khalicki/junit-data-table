@@ -44,6 +44,12 @@ publishing {
                 name.set("${project.group}:${project.name}")
                 description.set("JUnit5 parametrized test helper for declaring test case arguments")
                 url.set("https://github.com/khalicki/junit-data-table")
+                licenses {
+                    license {
+                        name.set("MIT License")
+                        url.set("https://raw.githubusercontent.com/khalicki/junit-data-table/main/LICENSE")
+                    }
+                }
                 developers {
                     developer {
                         id.set("khalicki")
@@ -60,10 +66,10 @@ publishing {
         }
     }
 
-//    repositories {
-//        maven {
-//            name = "local"
-//            url = uri(layout.buildDirectory.dir("maven-repository"))
-//        }
-//    }
+    repositories {
+        maven {
+            name = "local"
+            url = uri(layout.buildDirectory.dir("maven-repository"))
+        }
+    }
 }
