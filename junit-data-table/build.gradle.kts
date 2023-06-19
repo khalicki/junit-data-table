@@ -47,7 +47,7 @@ publishing {
                 licenses {
                     license {
                         name.set("MIT License")
-                        url.set("https://raw.githubusercontent.com/khalicki/junit-data-table/main/LICENSE")
+                        url.set("https://opensource.org/license/mit/")
                     }
                 }
                 developers {
