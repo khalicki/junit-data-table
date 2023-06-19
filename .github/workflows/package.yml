@@ -23,8 +23,5 @@ jobs:
           arguments: assemble
       - name: Publish to Nexus
         uses: gradle/gradle-build-action@v2
-        env:
-          USERNAME: ${{ github.actor }}
-          TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
-          arguments: publishToS01Nexus
+          arguments: publishToS01Nexus -Ps01NexusUsername=${{ secrets.NEXUS_USER }} -Ps01NexusPassword=${{ secrets.NEXUS_PASS }}
