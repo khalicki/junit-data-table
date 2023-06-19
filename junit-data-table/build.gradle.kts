@@ -3,12 +3,12 @@ plugins {
     `maven-publish`
 }
 
+group = "io.github.khalicki"
+version = "0.1.0-SNAPSHOT"
+
 repositories {
     mavenCentral()
 }
-
-group = "io.github.khalicki"
-version = "0.1.0-SNAPSHOT"
 
 dependencies {
     compileOnly("org.junit.jupiter:junit-jupiter-params:5.9.2")
@@ -40,6 +40,23 @@ publishing {
     publications {
         create<MavenPublication>("library") {
             from(components["java"])
+            pom {
+                name.set("${project.group}:${project.name}")
+                description.set("JUnit5 parametrized test helper for declaring test case arguments")
+                url.set("https://github.com/khalicki/junit-data-table")
+                developers {
+                    developer {
+                        id.set("khalicki")
+                        name.set("Kamil Halicki")
+                        url.set("https://github.com/khalicki")
+                    }
+                }
+                scm {
+                    connection.set("scm:git:git://github.com/khalicki/junit-data-table.git")
+                    developerConnection.set("scm:git:ssh://github.com:khalicki/junit-data-table.git")
+                    url.set("http://github.com/khalicki/junit-data-table/tree/main")
+                }
+            }
         }
     }
 
