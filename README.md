@@ -31,7 +31,7 @@ repositories {
 
 ### Write test
 
-Simplest Java test with data table looks like that:
+Simplest test with data table looks like that:
 ```java
     @ParameterizedTest
     @DataTableSource({
@@ -40,18 +40,6 @@ Simplest Java test with data table looks like that:
     })
     public void shouldConcatStrings(String first, String second, String result) {
         assertEquals(result, first + second);
-    }
-```
-
-Same test written in Kotlin looks like this:
-```kotlin
-    @ParameterizedTest
-    @DataTableSource(
-        Row("a", "b", "ab"),
-        Row("d", "e", "de"),
-    )
-    fun `should concat strings`(first: String, second: String, result: String) {
-        assertEquals(result, first + second)
     }
 ```
 
