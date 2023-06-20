@@ -1,7 +1,7 @@
-# junit-data-table
-JUnit5 parametrized test helper for declaring test case arguments
-
+# JUnit5 Data Table
 [![CI](https://github.com/khalicki/junit-data-table/actions/workflows/ci.yml/badge.svg)](https://github.com/khalicki/junit-data-table/actions/workflows/ci.yml)
+
+The library for defining two-dimensional data table of arguments for parametrized tests in JUnit5. 
 
 ## Quick start
 
