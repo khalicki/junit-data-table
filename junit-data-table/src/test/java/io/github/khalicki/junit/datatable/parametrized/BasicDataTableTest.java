@@ -1,9 +1,10 @@
 package io.github.khalicki.junit.datatable.parametrized;
 
-import io.github.khalicki.junit.datatable.Row;
 import io.github.khalicki.junit.datatable.DataTableSource;
-import org.junit.jupiter.api.Assertions;
+import io.github.khalicki.junit.datatable.Row;
 import org.junit.jupiter.params.ParameterizedTest;
+
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class BasicDataTableTest {
 
@@ -13,8 +14,7 @@ public class BasicDataTableTest {
         @Row({"d", "e", "de"})
     })
     public void shouldConcatStrings(String first, String second, String result) {
-        // expect
-        Assertions.assertEquals(result, first + second);
+        assertEquals(result, first + second);
     }
 
     @ParameterizedTest
@@ -24,6 +24,6 @@ public class BasicDataTableTest {
     })
     public void shouldSumInts(int first, int second, int result) {
         // expect
-        Assertions.assertEquals(result, first + second);
+        assertEquals(result, first + second);
     }
 }

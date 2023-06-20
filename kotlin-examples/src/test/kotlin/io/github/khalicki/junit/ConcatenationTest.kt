@@ -10,10 +10,9 @@ class ConcatenationTest {
     @ParameterizedTest
     @DataTableSource(
         Row("a", "b", "ab"),
-        Row("abc", "def", "abcdef"),
+        Row("d", "e", "de"),
     )
     fun `should join strings`(first: String, second: String, result: String) {
-        // expect
         assertEquals(result, first + second)
     }
 
