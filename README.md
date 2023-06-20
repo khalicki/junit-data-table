@@ -33,13 +33,13 @@ repositories {
 
 Simplest test with data table looks like that:
 ```java
-    @ParameterizedTest
-    @DataTableSource({
-        @Row({"a", "b", "ab"}),
-        @Row({"d", "e", "de"})
-    })
-    public void shouldConcatStrings(String first, String second, String result) {
-        assertEquals(result, first + second);
-    }
+@ParameterizedTest
+@DataTableSource({
+    @Row({"a", "b", "ab"}),
+    @Row({"d", "e", "de"})
+})
+public void shouldConcatStrings(String first, String second, String result) {
+    assertEquals(result, first + second);
+}
 ```
 
