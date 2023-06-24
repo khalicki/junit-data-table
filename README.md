@@ -29,9 +29,9 @@ repositories {
 }
 ```
 
-### Write test
+### Use data table to parametrize test
 
-Simplest test with data table looks like that:
+Add a `@DataTableSource` annotation to a test with JUnit's `@ParametrizedTest` annotation. A simple test with two test cases written in Java looks like that:
 ```java
 @ParameterizedTest
 @DataTableSource({
@@ -42,4 +42,3 @@ public void shouldConcatStrings(String first, String second, String result) {
     assertEquals(result, first + second);
 }
 ```
-
