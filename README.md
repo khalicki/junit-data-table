@@ -52,7 +52,7 @@ Each test is declared using `@ParametrizedTest` annotation and at least one *Arg
 
 In order to pass arguments to parametrized test, a `@DataTableSource` annotation should be added to test method. The name of this annotation comes from [Data tables](https://spockframework.org/spock/docs/2.3/data_driven_testing.html#data-tables) concept from Spock framework. 
 
-The `value` attribute of the annotation contain array of arguments for each test invocation. Each invocation is represented by `@Row` annotation. There should be at least one row defined in data table (needs implementation!).
+The `value` attribute of the annotation contain array of arguments for each test invocation. Each invocation is represented by `@Row` annotation. There should be at least one row defined in data table.
 
 #### Row
 
