@@ -1,6 +1,7 @@
 plugins {
     `java-library`
     `maven-publish`
+    signing
 }
 
 group = "io.github.khalicki"
@@ -72,4 +73,11 @@ publishing {
             url = uri(layout.buildDirectory.dir("maven-repository"))
         }
     }
+}
+
+signing {
+    val signingKey: String? by project
+    val signingPassword: String? by project
+    useInMemoryPgpKeys(signingKey, signingPassword)
+    sign(publishing.publications["library"])
 }
