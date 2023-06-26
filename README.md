@@ -1,7 +1,7 @@
 # JUnit5 Data Table
 [![CI](https://github.com/khalicki/junit-data-table/actions/workflows/ci.yml/badge.svg)](https://github.com/khalicki/junit-data-table/actions/workflows/ci.yml)
 
-The library for defining two-dimensional data table of arguments for parametrized tests in JUnit5. 
+The library for defining two-dimensional data table of arguments for parameterized tests in JUnit5. 
 
 ## Quick start
 
@@ -14,7 +14,7 @@ For projects using Gradle add following dependency:
 testImplementation("io.github.khalicki:junit-data-table:0.1.0-SNAPSHOT")
 ```
 
-For parametrized tests JUnit requires `junit-jupiter-params` so if you don't have it already add also:
+For parameterized tests JUnit requires `junit-jupiter-params` so if you don't have it already add also:
 ```kotlin
 testImplementation("org.junit.jupiter:junit-jupiter-params:<version>")
 ```
@@ -31,7 +31,7 @@ repositories {
 
 ### Use data table to parametrize test
 
-Add a `@DataTableSource` annotation to a test with JUnit's `@ParametrizedTest` annotation. A simple test with two test cases written in Java looks like that:
+Add a `@DataTableSource` annotation to a test with JUnit's `@ParameterizedTest` annotation. A simple test with two test cases written in Java looks like that:
 ```java
 @ParameterizedTest
 @DataTableSource({
@@ -45,12 +45,12 @@ public void shouldConcatStrings(String first, String second, String result) {
 
 ## User guide
 
-JUnit 5 supports parametrized tests as described in [Parameterized Tests](https://junit.org/junit5/docs/current/user-guide/#writing-tests-parameterized-tests) in JUnit documentation.
-Each test is declared using `@ParametrizedTest` annotation and at least one *Arguments Source*. This library adds a new `Arguments Source` that has the ability to provide multiple arguments for each test invocation.
+JUnit 5 supports parameterized tests as described in [Parameterized Tests](https://junit.org/junit5/docs/current/user-guide/#writing-tests-parameterized-tests) in JUnit documentation.
+Each test is declared using `@ParameterizedTest` annotation and at least one *Arguments Source*. This library adds a new `Arguments Source` that has the ability to provide multiple arguments for each test invocation.
 
 ### DataTableSource
 
-In order to pass arguments to parametrized test, a `@DataTableSource` annotation should be added to test method. The name of this annotation comes from [Data tables](https://spockframework.org/spock/docs/2.3/data_driven_testing.html#data-tables) concept from Spock framework. 
+In order to pass arguments to parameterized test, a `@DataTableSource` annotation should be added to test method. The name of this annotation comes from [Data tables](https://spockframework.org/spock/docs/2.3/data_driven_testing.html#data-tables) concept from Spock framework. 
 
 The `value` attribute of the annotation contain array of arguments for each test invocation. Each invocation is represented by `@Row` annotation. There should be at least one row defined in data table.
 
@@ -138,7 +138,7 @@ public void shouldSumIntsAlignedColumns(int first, int second, int result) {
 }
 ```
 
-It's also worth noting that in Kotlin language you don't need write `value` attribute name when other attributes are defined so this test is less verbose.
+It's also worth noting that in Kotlin language you don't need to write `value` attribute name when other attributes are defined so this test is less verbose.
 
 ```kotlin
 @ParameterizedTest
@@ -155,5 +155,5 @@ fun `should sum integers`(first: Int, second: Int, result: Int) {
 ## Inspiration
 
 This library is an effort to bring very powerful [Spock framework Data Tables](https://spockframework.org/spock/docs/2.3/data_driven_testing.html#data-tables) to tests written in Java and Kotlin.
-Spock uses AST modifications so it's not possible to make it looks the same in Java. However, it allows to define the same data table in a little more verbose way, but using same language that you use for your implementation (if Groovy is not your language of choice). Having the same programming language for tests and implementation makes it easier to work with Test Driven Development. 
+Spock uses AST modifications, so it's not possible to make it looks the same in Java. However, it allows to define the same data table in a little more verbose way, but using same language that you use for your implementation (if Groovy is not your language of choice). Having the same programming language for tests and implementation makes it easier to work with Test Driven Development. 
 

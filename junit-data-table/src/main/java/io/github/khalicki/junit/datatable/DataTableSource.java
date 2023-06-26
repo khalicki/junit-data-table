@@ -23,7 +23,7 @@ public @interface DataTableSource {
     /**
      * Rows of test's data table.
      *
-     * <p>Each Row from this array is a single test execution of parametrized test.</p>
+     * <p>Each Row from this array is a single test execution of parameterized test.</p>
      *
      * @since 0.1.0
      */

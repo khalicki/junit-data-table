@@ -42,7 +42,7 @@ publishing {
             from(components["java"])
             pom {
                 name.set("${project.group}:${project.name}")
-                description.set("JUnit5 parametrized test helper for declaring test case arguments")
+                description.set("JUnit5 parameterized test helper for declaring test case arguments")
                 url.set("https://github.com/khalicki/junit-data-table")
                 licenses {
                     license {

@@ -2,7 +2,7 @@ package io.github.khalicki.junit.datatable;
 
 /**
  * Annotation for a single row in a test's data table.
- * One row is also one test case in a parametrized test. It can have one or more test parameters
+ * One row is also one test case in a parameterized test. It can have one or more test parameters
  * passed by value argument.
  *
  * @since 0.1.0
@@ -17,7 +17,7 @@ public @interface Row {
     String[] value() default {};
 
     /**
-     * Determines if a row should be treated as a table header. Such row is omitted when parametrized
+     * Determines if a row should be treated as a table header. Such row is omitted when parameterized
      * test is executed. The purpose of such row is to add description for data table parameters.
      */
     boolean header() default false;

@@ -1,4 +1,4 @@
-package io.github.khalicki.junit.datatable.parametrized;
+package io.github.khalicki.junit.datatable.parameterized;
 
 import io.github.khalicki.junit.datatable.Row;
 import io.github.khalicki.junit.datatable.DataTableSource;

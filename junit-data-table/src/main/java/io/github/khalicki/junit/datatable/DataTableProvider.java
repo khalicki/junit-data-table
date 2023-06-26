@@ -10,7 +10,7 @@ import java.util.stream.Stream;
 
 /**
  * ArgumentsProvider that reads test cases from {@code @DataTableSource} annotation
- * and provides arguments for the execution of a parametrized test.
+ * and provides arguments for the execution of a parameterized test.
  *
  * @since 0.1.0
  * @author Kamil Halicki
