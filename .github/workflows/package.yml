@@ -6,10 +6,6 @@ on:
 permissions:
   contents: read
 
-env:
-  ORG_GRADLE_PROJECT_signingKey: ${{ secrets.OSSRH_GPG_SECRET_KEY }}
-  ORG_GRADLE_PROJECT_signingPassword: ${{ secrets.OSSRH_GPG_SECRET_KEY_PASSWORD }}
-
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -25,7 +21,17 @@ jobs:
         uses: gradle/gradle-build-action@v2
         with:
           arguments: assemble
+      - id: install-secret-key
+        name: Install gpg secret key
+        run: |
+          # Install gpg secret key
+          cat <(echo -e "${{ secrets.OSSRH_GPG_SECRET_KEY }}") | gpg --batch --import
+          # Verify gpg secret key
+          gpg --list-secret-keys --keyid-format LONG
       - name: Publish to Nexus
         uses: gradle/gradle-build-action@v2
         with:
           arguments: publishToS01Nexus -Ps01NexusUsername=${{ secrets.NEXUS_USER }} -Ps01NexusPassword=${{ secrets.NEXUS_PASS }}
+        env:
+          ORG_GRADLE_PROJECT_signingKey: ${{ secrets.OSSRH_GPG_SECRET_KEY }}
+          ORG_GRADLE_PROJECT_signingPassword: ${{ secrets.OSSRH_GPG_SECRET_KEY_PASSWORD }}
