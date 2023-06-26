@@ -11,22 +11,12 @@ To quickly start using JUnit Data Table follow these steps:
 
 For projects using Gradle add following dependency:
 ```kotlin
-testImplementation("io.github.khalicki:junit-data-table:0.1.0-SNAPSHOT")
+testImplementation("io.github.khalicki:junit-data-table:0.1.0")
 ```
 
 For parameterized tests JUnit requires `junit-jupiter-params` so if you don't have it already add also:
 ```kotlin
 testImplementation("org.junit.jupiter:junit-jupiter-params:<version>")
-```
-
-Because `junit-data-table` is not yet released to maven central you need to add maven snapshots repository to your project.
-```kotlin
-repositories {
-    mavenCentral()
-    maven(
-        uri("https://s01.oss.sonatype.org/content/repositories/snapshots/")
-    )
-}
 ```
 
 ### Use data table to parametrize test
