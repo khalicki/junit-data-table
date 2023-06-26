@@ -31,7 +31,4 @@ jobs:
       - name: Publish to Nexus
         uses: gradle/gradle-build-action@v2
         with:
-          arguments: publishToS01Nexus -Ps01NexusUsername=${{ secrets.NEXUS_USER }} -Ps01NexusPassword=${{ secrets.NEXUS_PASS }}
-        env:
-          ORG_GRADLE_PROJECT_signingKey: ${{ secrets.OSSRH_GPG_SECRET_KEY }}
-          ORG_GRADLE_PROJECT_signingPassword: ${{ secrets.OSSRH_GPG_SECRET_KEY_PASSWORD }}
+          arguments: publishToS01Nexus -Ps01NexusUsername=${{ secrets.NEXUS_USER }} -Ps01NexusPassword=${{ secrets.NEXUS_PASS }} -Psigning.gnupg.keyName=${{ secrets.GPG_KEY_NAME }} -Psigning.gnupg.passphrase=${{ secrets.GPG_KEY_PASS }}
