@@ -107,3 +107,53 @@ public void shouldAllowChangeNullValue(String value, Boolean isNull) {
     Assertions.assertEquals(isNull, value == null);
 }
 ```
+
+##### Header row
+
+There is a possibility to add a row with data table column names. This is only added for readability just to have argument name closer to argument values. For header row set attribute `header` to `true`.
+
+```java
+@ParameterizedTest
+@DataTableSource({
+    @Row(value = {"first", "second", "result"}, header = true),
+    @Row(value = {"1", "1", "2"}),
+    @Row(value = {"2", "3", "5"})
+})
+public void shouldSumIntsAndIgnoreHeader(int first, int second, int result) {
+    Assertions.assertEquals(result, first + second);
+}
+```
+
+You can format data table in similar way the Spock framework to look like a table.
+
+```java
+@ParameterizedTest
+@DataTableSource({
+    @Row(value = {"first", "second", "result"}, header = true),
+    @Row(value = {"1"    , "1"     , "2"     }),
+    @Row(value = {"2"    , "3"     , "5"     })
+})
+public void shouldSumIntsAlignedColumns(int first, int second, int result) {
+    Assertions.assertEquals(result, first + second);
+}
+```
+
+It's also worth noting that in Kotlin language you don't need write `value` attribute name when other attributes are defined so this test is less verbose.
+
+```kotlin
+@ParameterizedTest
+@DataTableSource(
+    Row("first", "second", "result", header = true),
+    Row("1"    , "1"     , "2"    ),
+    Row("2"    , "3"     , "5"    ),
+)
+fun `should sum integers`(first: Int, second: Int, result: Int) {
+    assertEquals(result, first + second)
+}
+```
+
+## Inspiration
+
+This library is an effort to bring very powerful [Spock framework Data Tables](https://spockframework.org/spock/docs/2.3/data_driven_testing.html#data-tables) to tests written in Java and Kotlin.
+Spock uses AST modifications so it's not possible to make it looks the same in Java. However, it allows to define the same data table in a little more verbose way, but using same language that you use for your implementation (if Groovy is not your language of choice). Having the same programming language for tests and implementation makes it easier to work with Test Driven Development. 
+

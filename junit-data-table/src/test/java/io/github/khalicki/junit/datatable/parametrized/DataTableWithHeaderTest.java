@@ -10,11 +10,20 @@ public class DataTableWithHeaderTest {
     @ParameterizedTest
     @DataTableSource({
         @Row(value = {"first", "second", "result"}, header = true),
+        @Row(value = {"1", "1", "2"}),
+        @Row(value = {"2", "3", "5"})
+    })
+    public void shouldSumIntsAndIgnoreHeader(int first, int second, int result) {
+        Assertions.assertEquals(result, first + second);
+    }
+
+    @ParameterizedTest
+    @DataTableSource({
+        @Row(value = {"first", "second", "result"}, header = true),
         @Row(value = {"1"    , "1"     , "2"     }),
         @Row(value = {"2"    , "3"     , "5"     })
     })
-    public void shouldSumIntsAndIgnoreHeader(int first, int second, int result) {
-        // expect
+    public void shouldSumIntsAlignedColumns(int first, int second, int result) {
         Assertions.assertEquals(result, first + second);
     }
 }
