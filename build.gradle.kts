@@ -3,7 +3,7 @@ plugins {
 }
 
 group = "io.github.khalicki"
-version = "0.1.0-SNAPSHOT"
+version = "0.1.0"
 
 nexusPublishing {
     repositories {
