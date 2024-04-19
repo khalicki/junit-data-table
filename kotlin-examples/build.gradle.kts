@@ -9,9 +9,14 @@ repositories {
     mavenCentral()
 }
 
+kotlin {
+    jvmToolchain(17)
+}
+
 dependencies {
     testImplementation("org.junit.jupiter:junit-jupiter:5.9.2")
     testImplementation("org.junit.jupiter:junit-jupiter-params:5.9.2")
+    testRuntimeOnly("org.junit.platform:junit-platform-launcher")
 
     testImplementation(project(":junit-data-table"))
 }
