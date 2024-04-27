@@ -15,7 +15,7 @@ import org.junit.jupiter.params.provider.ArgumentsSource;
  * Each {@code @Row} is a single test case with one or many test case arguments
  * </p>
  *
- * @since 0.1.0
+ * @since 0.2.0
  * @author Kamil Halicki
  */
 @Target({ElementType.ANNOTATION_TYPE, ElementType.METHOD})
