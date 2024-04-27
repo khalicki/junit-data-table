@@ -1,10 +1,9 @@
 package io.github.khalicki.junit.datatable;
 
+import java.util.stream.Stream;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.provider.Arguments;
-
-import java.util.stream.Stream;
 
 import static io.github.khalicki.junit.datatable.DataTableSourceBuilder.dataTableSource;
 import static org.junit.jupiter.api.Assertions.assertEquals;
@@ -27,7 +26,7 @@ class TestCaseProviderTest {
     @Test
     void shouldAcceptEmptyArguments() {
         // given
-        DataTableSource annotation = dataTableSource().build();
+        Where annotation = dataTableSource().build();
         dataTableProvider.accept(annotation);
 
         // when
@@ -40,7 +39,7 @@ class TestCaseProviderTest {
     @Test
     void shouldSingleTestCaseArgument() {
         // given
-        DataTableSource annotation = dataTableSource()
+        Where annotation = dataTableSource()
                 .withRow(RowBuilder.of("value1"))
                 .build();
         dataTableProvider.accept(annotation);

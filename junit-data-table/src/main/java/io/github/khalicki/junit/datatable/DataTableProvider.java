@@ -15,13 +15,13 @@ import java.util.stream.Stream;
  * @since 0.1.0
  * @author Kamil Halicki
  */
-public class DataTableProvider implements ArgumentsProvider, AnnotationConsumer<DataTableSource> {
+public class DataTableProvider implements ArgumentsProvider, AnnotationConsumer<Where> {
 
-    private DataTableSource annotation;
+    private Where annotation;
 
     @Override
-    public void accept(DataTableSource dataTableSource) {
-        this.annotation = dataTableSource;
+    public void accept(Where whereAnnotation) {
+        this.annotation = whereAnnotation;
     }
 
     @Override

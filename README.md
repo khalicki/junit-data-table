@@ -11,7 +11,7 @@ To quickly start using JUnit Data Table follow these steps:
 
 For projects using Gradle add following dependency:
 ```kotlin
-testImplementation("io.github.khalicki:junit-data-table:0.1.0")
+testImplementation("io.github.khalicki:junit-data-table:0.2.0")
 ```
 
 For parameterized tests JUnit requires `junit-jupiter-params` so if you don't have it already add also:
@@ -21,10 +21,10 @@ testImplementation("org.junit.jupiter:junit-jupiter-params:<version>")
 
 ### Use data table to parametrize test
 
-Add a `@DataTableSource` annotation to a test with JUnit's `@ParameterizedTest` annotation. A simple test with two test cases written in Java looks like that:
+Add a `@Where` annotation to a test with JUnit's `@ParameterizedTest` annotation. A simple test with two test cases written in Java looks like that:
 ```java
 @ParameterizedTest
-@DataTableSource({
+@Where({
     @Row({"a", "b", "ab"}),
     @Row({"d", "e", "de"})
 })
@@ -40,13 +40,13 @@ Each test is declared using `@ParameterizedTest` annotation and at least one *Ar
 
 ### DataTableSource
 
-In order to pass arguments to parameterized test, a `@DataTableSource` annotation should be added to test method. The name of this annotation comes from [Data tables](https://spockframework.org/spock/docs/2.3/data_driven_testing.html#data-tables) concept from Spock framework. 
+In order to pass arguments to parameterized test, a `@Where` annotation should be added to test method. The name of this annotation comes from [Data tables](https://spockframework.org/spock/docs/2.3/data_driven_testing.html#data-tables) concept from Spock framework. 
 
 The `value` attribute of the annotation contain array of arguments for each test invocation. Each invocation is represented by `@Row` annotation. There should be at least one row defined in data table.
 
 #### Row
 
-`Row` annotation represents single row in data table, and can be used only inside `@DataTableSource`. It is a single test invocation with arguments declared using `value` attribute. It's a default attribute so attribute name can be omitted.
+`Row` annotation represents single row in data table, and can be used only inside `@Where`. It is a single test invocation with arguments declared using `value` attribute. It's a default attribute so attribute name can be omitted.
 
 ```java
 @Row({"hello", "world"})
@@ -54,14 +54,14 @@ The `value` attribute of the annotation contain array of arguments for each test
 
 To pass these values to test invocation, annotated method should have same number of arguments.
 ```java
-public void someTest(String firstArgument, String secondArgument)
+public void someTest(String firstArgument, String secondArgument) {}
 ```
 
 `Row` annotation only accepts arguments of type `java.lang.String`. If you need test arguments of different type you can use [JUnit Argument Conversion](https://junit.org/junit5/docs/current/user-guide/#writing-tests-parameterized-tests-argument-conversion) which converts `String` values to declared arguments.
 
 ```java
 @ParameterizedTest
-@DataTableSource({
+@Where({
     @Row({"1", "1", "2"}),
     @Row({"2", "3", "5"})
 })
@@ -76,7 +76,7 @@ Java annotations doesn't allow passing `null` as annotation attribute. In order 
 
 ```java
 @ParameterizedTest
-@DataTableSource({
+@Where({
     @Row(value = {"null"})
 })
 public void shouldBeParameterizedWithNull(String value) {
@@ -84,11 +84,11 @@ public void shouldBeParameterizedWithNull(String value) {
 }
 ```
 
-For tests that need to pass `"null"` string to test invocation you can rename what value is replaced with `null` using `nullValue` attribute of `@DataTableSource`.
+For tests that need to pass `"null"` string to test invocation you can rename what value is replaced with `null` using `nullValue` attribute of `@Where`.
 
 ```java
 @ParameterizedTest
-@DataTableSource(value = {
+@Where(value = {
     @Row({"null", "false"}),
     @Row({"nil", "true"}),
 }, nullValue = "nil"
@@ -104,7 +104,7 @@ There is a possibility to add a row with data table column names. This is only a
 
 ```java
 @ParameterizedTest
-@DataTableSource({
+@Where({
     @Row(value = {"first", "second", "result"}, header = true),
     @Row(value = {"1", "1", "2"}),
     @Row(value = {"2", "3", "5"})
@@ -118,7 +118,7 @@ You can format data table in similar way the Spock framework to look like a tabl
 
 ```java
 @ParameterizedTest
-@DataTableSource({
+@Where({
     @Row(value = {"first", "second", "result"}, header = true),
     @Row(value = {"1"    , "1"     , "2"     }),
     @Row(value = {"2"    , "3"     , "5"     })
@@ -132,7 +132,7 @@ It's also worth noting that in Kotlin language you don't need to write `value` a
 
 ```kotlin
 @ParameterizedTest
-@DataTableSource(
+@Where(
     Row("first", "second", "result", header = true),
     Row("1"    , "1"     , "2"    ),
     Row("2"    , "3"     , "5"    ),
