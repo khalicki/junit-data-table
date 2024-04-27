@@ -19,8 +19,8 @@ public class DataTableSourceBuilder {
         return this;
     }
 
-    public DataTableSource build() {
-        return new DataTableSource() {
+    public Where build() {
+        return new Where() {
             @Override
             public Row[] value() {
                 return rows.toArray(Row[]::new);
@@ -33,7 +33,7 @@ public class DataTableSourceBuilder {
 
             @Override
             public Class<? extends Annotation> annotationType() {
-                return DataTableSource.class;
+                return Where.class;
             }
         };
     }

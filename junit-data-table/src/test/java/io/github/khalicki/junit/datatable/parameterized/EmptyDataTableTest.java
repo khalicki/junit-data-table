@@ -1,6 +1,6 @@
 package io.github.khalicki.junit.datatable.parameterized;
 
-import io.github.khalicki.junit.datatable.DataTableSource;
+import io.github.khalicki.junit.datatable.Where;
 import io.github.khalicki.junit.datatable.Row;
 import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.params.ParameterizedTest;
@@ -19,14 +19,14 @@ public class EmptyDataTableTest {
 
     @Disabled("JUnit throws PreconditionViolationException exception")
     @ParameterizedTest
-    @DataTableSource({})
+    @Where({})
     public void emptyDataTableShouldThrowException() {
         fail("should not be called");
     }
 
     @Disabled("JUnit throws PreconditionViolationException exception")
     @ParameterizedTest
-    @DataTableSource({
+    @Where({
         @Row(value = "testArgument", header = true)
     })
     public void dataTableWithOnlyHeaderShouldThrowException() {

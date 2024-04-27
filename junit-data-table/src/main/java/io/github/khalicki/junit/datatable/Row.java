@@ -13,12 +13,16 @@ public @interface Row {
     /**
      * Test parameters for a given test case.
      * Only String values are accepted but JUnit can convert them to declared test arguments.
+     *
+     * @return Array of String parameters for a single test case
      */
     String[] value() default {};
 
     /**
      * Determines if a row should be treated as a table header. Such row is omitted when parameterized
      * test is executed. The purpose of such row is to add description for data table parameters.
+     *
+     * @return Pass true when the row has column names instead of test case parameters
      */
     boolean header() default false;
 }
